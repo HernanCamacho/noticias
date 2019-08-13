@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
       IonicModule.forRoot(),
       AppRoutingModule,
       HttpClientModule,
+      IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
