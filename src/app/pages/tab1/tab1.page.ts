@@ -23,13 +23,11 @@ export class Tab1Page implements OnInit {
 
   cargarNoticias(event?) {
     this.noticiasService.getTopHeadlines().subscribe(resp => {
-        // console.log('noticias', resp);
         if (resp.articles.length === 0) {
           event.target.disabled = true;
           event.target.complete();
           return;
         }
-
         // Js lo tratará como articulos independientes en lugar de un array al usar spread (...array)
         this.noticias.push(...resp.articles);
         if (event) {

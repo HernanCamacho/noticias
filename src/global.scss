@@ -27,6 +27,12 @@
 
 
 // Estilos propios
+
+body {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
 .text-primary {
   color: var( --ion-color-primary ) !important;
 }
