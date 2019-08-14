@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RespuestaTopHeadlines } from '../pages/interfaces/interfaces';
+import { RespuestaTopHeadlines, Article } from '../pages/interfaces/interfaces';
 import { environment } from '../../environments/environment';
 
 const apiKey = environment.apiKey;
@@ -18,6 +18,7 @@ export class NoticiasService {
   headlinesPage = 0;
   categoriaActual = '';
   categoriaPage = 0;
+  noticia;
 
   constructor( private http: HttpClient) { }
 
@@ -40,5 +41,14 @@ export class NoticiasService {
     }
     console.log(this.categoriaPage);
     return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=mx&category=${categoria}&page=${this.categoriaPage}`);
+  }
+
+  setNoticia(noticia: Article) {
+    this.noticia = noticia;
+  }
+
+  getNoticia() {
+    console.log(this.noticia);
+    return this.noticia;
   }
 }

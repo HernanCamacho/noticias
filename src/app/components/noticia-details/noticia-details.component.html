@@ -1,0 +1,9 @@
+<ion-label>
+  <p *ngIf="noticia.author">
+    Autor: {{ noticia.author }}
+  </p>
+  <p>
+    Fecha de publicación:
+    <time>{{noticia.publishedAt | date:'dd/MM/yyyy'}}</time>
+  </p>
+</ion-label>

@@ -4,6 +4,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { DataLocalService } from 'src/app/services/data-local.service';
+import { Router } from '@angular/router';
+import { NoticiasService } from 'src/app/services/noticias.service';
 
 @Component({
   selector: 'app-noticia',
@@ -15,11 +17,14 @@ export class NoticiaComponent implements OnInit {
   @Input() noticia: Article;
   @Input() i: number;
   @Input() enFavoritos;
+  details = false;
 
   constructor( private inAppBrowserService: InAppBrowser,
                private actionSheetCtrl: ActionSheetController,
                private socialSharing: SocialSharing,
-               private dataLocalService: DataLocalService) { }
+               private dataLocalService: DataLocalService,
+               private router: Router,
+               private noticiasService: NoticiasService) { }
 
   ngOnInit() {}
 
@@ -81,6 +86,14 @@ export class NoticiaComponent implements OnInit {
       }]
     });
     await actionSheet.present();
+ }
+
+ viewDetails(noticia: Article) {
+   if ( this.details ) {
+     this.details = false;
+   } else {
+     this.details = true;
+   }
  }
 
 }
