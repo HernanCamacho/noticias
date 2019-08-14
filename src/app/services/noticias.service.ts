@@ -18,7 +18,7 @@ export class NoticiasService {
   headlinesPage = 0;
   categoriaActual = '';
   categoriaPage = 0;
-  noticia;
+  noticia: Article;
 
   constructor( private http: HttpClient) { }
 
@@ -39,7 +39,6 @@ export class NoticiasService {
       this.categoriaPage = 1;
       this.categoriaActual = categoria;
     }
-    console.log(this.categoriaPage);
     return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=mx&category=${categoria}&page=${this.categoriaPage}`);
   }
 
@@ -48,7 +47,6 @@ export class NoticiasService {
   }
 
   getNoticia() {
-    console.log(this.noticia);
     return this.noticia;
   }
 }

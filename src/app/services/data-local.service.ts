@@ -10,8 +10,10 @@ export class DataLocalService {
 
   noticias: Article[] = [];
 
-  constructor(private storage: Storage,
-              public toastController: ToastController) {
+  constructor(
+    private storage: Storage,
+    public toastController: ToastController
+  ) {
     this.cargarFavoritos();
   }
 

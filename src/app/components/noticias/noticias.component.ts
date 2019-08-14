@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Article } from 'src/app/pages/interfaces/interfaces';
 
 @Component({
@@ -6,13 +6,11 @@ import { Article } from 'src/app/pages/interfaces/interfaces';
   templateUrl: './noticias.component.html',
   styleUrls: ['./noticias.component.scss'],
 })
-export class NoticiasComponent implements OnInit {
+export class NoticiasComponent {
 
   @Input() noticias: Article;
   @Input() enFavoritos = false;
 
   constructor() { }
-
-  ngOnInit() {}
 
 }

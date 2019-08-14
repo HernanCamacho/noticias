@@ -8,7 +8,6 @@ import { DataLocalService } from 'src/app/services/data-local.service';
 })
 export class Tab3Page {
 
-
   constructor(public dataLocalService: DataLocalService) { }
 
 }

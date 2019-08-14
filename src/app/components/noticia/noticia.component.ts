@@ -78,11 +78,7 @@ export class NoticiaComponent {
  }
 
  viewDetails() {
-   if ( this.details ) {
-     this.details = false;
-   } else {
-     this.details = true;
-   }
+   this.details ? this.details = false : this.details = true;
  }
 
 }
