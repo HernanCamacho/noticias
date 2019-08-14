@@ -1,18 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Article } from 'src/app/pages/interfaces/interfaces';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { DataLocalService } from 'src/app/services/data-local.service';
-import { Router } from '@angular/router';
-import { NoticiasService } from 'src/app/services/noticias.service';
 
 @Component({
   selector: 'app-noticia',
   templateUrl: './noticia.component.html',
   styleUrls: ['./noticia.component.scss'],
 })
-export class NoticiaComponent implements OnInit {
+export class NoticiaComponent {
 
   @Input() noticia: Article;
   @Input() i: number;
@@ -22,16 +20,7 @@ export class NoticiaComponent implements OnInit {
   constructor( private inAppBrowserService: InAppBrowser,
                private actionSheetCtrl: ActionSheetController,
                private socialSharing: SocialSharing,
-               private dataLocalService: DataLocalService,
-               private router: Router,
-               private noticiasService: NoticiasService) { }
-
-  ngOnInit() {}
-
-  abrirNoticia() {
-    const browser = this.inAppBrowserService.create(this.noticia
-    .url, '_system');
-  }
+               private dataLocalService: DataLocalService) { }
 
  async lanzarMenu() {
    let borrarBtn;
@@ -88,7 +77,7 @@ export class NoticiaComponent implements OnInit {
     await actionSheet.present();
  }
 
- viewDetails(noticia: Article) {
+ viewDetails() {
    if ( this.details ) {
      this.details = false;
    } else {
